@@ -1,21 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int* exchange(int n , int arr[]){
-    int temp;
+int* bubble(int n,int arr[]){
+
     for(int i=0;i<n-1;i++){
-        for(int j=i;j<n;j++){
+        int temp = 0;
+        for(int j=1;j<n;j++){
 
-            //如果比較大則交換
-            if(arr[j]<arr[i]){
+            //交換
+            if(arr[j-1]>arr[j]){
+                 //印出交換的數字
+                cout<<"switch"<<" "<<arr[j-1]<<" "<<arr[j]<<endl;
 
-                //印出交換的數字
-                cout<<"switch"<<" "<<arr[j]<<" "<<arr[i]<<endl;
-
-                //交換
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
 
                 //印出當前排序結果
                 cout<<"| ";
@@ -23,18 +22,15 @@ int* exchange(int n , int arr[]){
                     cout<<arr[k]<<" | ";
                 }
                 cout<<endl;
-
-                // 回到交換起點
-                j = i;
             }
         }
+        if(temp ==0) return arr;
     }
-
     return arr;
 }
 
 int main(){
-    int n ,a[100];
+    int n,a[100];
     int *p = a;
 
     cin>>n;
@@ -51,10 +47,9 @@ int main(){
     }
     cout<<endl;
 
-    //執行exchange sort
-    p = exchange(n,a);
 
-    cout<<"sort:"<<endl;
+    //執行selecetion sort
+    p = bubble(n,a);
 
     cout<<"sort:"<<endl;
     cout<<"| ";

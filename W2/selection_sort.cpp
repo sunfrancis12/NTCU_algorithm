@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int* exchange(int n , int arr[]){
+int* selecetion(int n , int arr[]){
     //min為最小值的位置
     int min,temp;
     for(int i=0;i<n-1;i++){
@@ -52,14 +52,16 @@ int main(){
         cout<<a[k]<<" | ";
     }
     cout<<endl;
-    
 
-    //執行exchange sort
-    p = exchange(n,a);
+
+    //執行selecetion sort
+    p = selecetion(n,a);
 
     cout<<"sort:"<<endl;
 
+    cout<<"sort:"<<endl;
+    cout<<"| ";
     for(int i=0;i<n;i++){
-        cout<<a[i];
+        cout<<a[i]<<" | ";
     }
 }
