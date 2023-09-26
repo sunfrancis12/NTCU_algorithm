@@ -55,8 +55,6 @@ int main(){
     p = exchange(n,a);
 
     cout<<"sort:"<<endl;
-
-    cout<<"sort:"<<endl;
     cout<<"| ";
     for(int i=0;i<n;i++){
         cout<<a[i]<<" | ";
