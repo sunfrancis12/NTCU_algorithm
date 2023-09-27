@@ -24,7 +24,7 @@ int* exchange(int n , int arr[]){
 }
 
 int main(){
-    int n=10000,a[10000];
+    int n=100000,a[100000];
     int *p = a;
     clock_t timer;
 
