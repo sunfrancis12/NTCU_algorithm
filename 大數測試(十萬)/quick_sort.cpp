@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 int* quick(int start,int end,int arr[]){
 
     if(start >= end){
@@ -8,7 +9,7 @@ int* quick(int start,int end,int arr[]){
     }
 
     int temp;
-    int qviot = start; //支點
+    int qviot = rand()%(end-start)+start; //隨機支點，避免worstcase
     int big = start; //紀錄比支點大陣列中的位置
     int sml = end-1; //紀錄比支點小陣列中的位置
 
@@ -37,31 +38,19 @@ int* quick(int start,int end,int arr[]){
     return arr;
 }
 int main(){
-    int n,a[100];
+    int n=100000,a[100000];
     int *p = a;
+    clock_t timer;
 
-    cin>>n;
+    srand(time(NULL)); //初始化隨機數產生器
 
     for(int i=0;i<n;i++){
-        cin>>a[i];
+        a[i] = rand()%100000+1;
     }
-
-    //印出輸入內容
-    cout<<"input:"<<endl;
-    cout<<"| ";
-    for(int k=0;k<n;k++){
-        cout<<a[k]<<" | ";
-    }
-    cout<<endl;
-
 
     //執行quick sort
     p = quick(0,n,a);
+    timer = clock();
 
-    cout<<"sort:"<<endl;
-    cout<<"| ";
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" | ";
-    }
-
+    cout<<"Spend time: "<<timer<<" ms";
 }

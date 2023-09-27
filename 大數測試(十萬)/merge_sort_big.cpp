@@ -8,7 +8,7 @@ void merge_sort(int start,int index,int end,vector<int> &arr){
     vector<int> left(arr.begin()+ start,arr.begin()+index+1);
 
     //設定邊界
-    int MAX = 100000;
+    int MAX = 1000000;
     right.push_back(MAX); 
     left.push_back(MAX);
 
@@ -39,31 +39,21 @@ void merge(int start ,int end,vector<int> &arr){
 }
 
 int main(){
-    int n,num;
+    int n=100000,num;
     vector<int> a;
+    clock_t timer;
 
-    cin>>n;
+    srand(time(NULL));
+
 
     for(int i=0;i<n;i++){
-        cin>>num;
-        a.push_back(num);
+        a.push_back(rand()%100000+1);
     }
-
-    //印出輸入內容
-    cout<<"input:"<<endl;
-    cout<<"| ";
-    for(int k=0;k<n;k++){
-        cout<<a[k]<<" | ";
-    }
-    cout<<endl;
 
 
     //執行merge sort
     merge(0,n-1,a);
+    timer = clock();
 
-    cout<<"sort:"<<endl;
-    cout<<"| ";
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" | ";
-    }
+    cout<<"Spend time: "<<timer<<" ms";
 }
